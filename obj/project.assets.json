@@ -2,6 +2,18 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.0": {
+      "AspNet.Security.OAuth.Spotify/3.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.0/AspNet.Security.OAuth.Spotify.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/AspNet.Security.OAuth.Spotify.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Microsoft.AspNetCore.JsonPatch/3.0.0-preview5-19227-01": {
         "type": "package",
         "dependencies": {
@@ -44,15 +56,6 @@
           "lib/netcoreapp2.0/_._": {}
         }
       },
-      "Microsoft.NETCore.Platforms/3.0.0-preview5.19224.8": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard1.0/_._": {}
-        },
-        "runtime": {
-          "lib/netstandard1.0/_._": {}
-        }
-      },
       "Newtonsoft.Json/12.0.1": {
         "type": "package",
         "compile": {
@@ -77,6 +80,20 @@
     }
   },
   "libraries": {
+    "AspNet.Security.OAuth.Spotify/3.0.0": {
+      "sha512": "5ciZtwpiDDYXeY0Q2F0ii8248vXbPBhJijgP72rDP3t03R+8v4GUzJ1qYTXHJAfvDVoVghkl8yTP9Fupx4l6Ww==",
+      "type": "package",
+      "path": "aspnet.security.oauth.spotify/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "aspnet.security.oauth.spotify.3.0.0.nupkg.sha512",
+        "aspnet.security.oauth.spotify.nuspec",
+        "lib/netcoreapp3.0/AspNet.Security.OAuth.Spotify.dll",
+        "lib/netcoreapp3.0/AspNet.Security.OAuth.Spotify.xml",
+        "package-icon.png"
+      ]
+    },
     "Microsoft.AspNetCore.JsonPatch/3.0.0-preview5-19227-01": {
       "sha512": "pwKI1d0w3mk0r8wZLOptvkXud3W8zPgR50ijLDo0wz5fFU0Cvn/wOE1uhLZf2cRt2ezgnQngw7ofX9Tf+cJUdQ==",
       "type": "package",
@@ -172,23 +189,6 @@
         "version.txt"
       ]
     },
-    "Microsoft.NETCore.Platforms/3.0.0-preview5.19224.8": {
-      "sha512": "MEt1XzSndofi4WBoGaRcMZdy9rqNtZITVZev2PTtXizcNe4csoN7U638Q73M93I/LxroBAI1IB+6HQOuklkKrw==",
-      "type": "package",
-      "path": "microsoft.netcore.platforms/3.0.0-preview5.19224.8",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/netstandard1.0/_._",
-        "microsoft.netcore.platforms.3.0.0-preview5.19224.8.nupkg.sha512",
-        "microsoft.netcore.platforms.nuspec",
-        "runtime.json",
-        "useSharedDesignerContext.txt",
-        "version.txt"
-      ]
-    },
     "Newtonsoft.Json/12.0.1": {
       "sha512": "pBR3wCgYWZGiaZDYP+HHYnalVnPJlpP1q55qvVb+adrDHmFMDc1NAKio61xTwftK3Pw5h7TZJPJEEVMd6ty8rg==",
       "type": "package",
@@ -252,40 +252,36 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.0": [
-      "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 3.0.0-preview5-19227-01",
-      "Microsoft.NETCore.Platforms >= 3.0.0-preview5.19224.8"
+      "AspNet.Security.OAuth.Spotify >= 3.0.0",
+      "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 3.0.0-preview5-19227-01"
     ]
   },
   "packageFolders": {
-    "/Users/angelmurchison/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\angel\\.nuget\\packages\\": {},
+    "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/angelmurchison/Documents/dev/Spotify.Genres3/Spotify.Genres3.csproj",
+      "projectUniqueName": "C:\\dev\\Spotify.Genres\\Spotify.Genres3.csproj",
       "projectName": "Spotify.Genres3",
-      "projectPath": "/Users/angelmurchison/Documents/dev/Spotify.Genres3/Spotify.Genres3.csproj",
-      "packagesPath": "/Users/angelmurchison/.nuget/packages/",
-      "outputPath": "/Users/angelmurchison/Documents/dev/Spotify.Genres3/obj/",
+      "projectPath": "C:\\dev\\Spotify.Genres\\Spotify.Genres3.csproj",
+      "packagesPath": "C:\\Users\\angel\\.nuget\\packages\\",
+      "outputPath": "C:\\dev\\Spotify.Genres\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/angelmurchison/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\angel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.0"
       ],
       "sources": {
-        "https://api.nuget.org/v3/index.json": {},
-        "https://dotnetfeed.blob.core.windows.net/aspnet-aspnetcore-tooling/index.json": {},
-        "https://dotnetfeed.blob.core.windows.net/aspnet-aspnetcore/index.json": {},
-        "https://dotnetfeed.blob.core.windows.net/aspnet-entityframeworkcore/index.json": {},
-        "https://dotnetfeed.blob.core.windows.net/aspnet-extensions/index.json": {},
-        "https://dotnetfeed.blob.core.windows.net/dotnet-core/index.json": {},
-        "https://dotnetfeed.blob.core.windows.net/dotnet-windowsdesktop/index.json": {}
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.0": {
@@ -301,32 +297,34 @@
     "frameworks": {
       "netcoreapp3.0": {
         "dependencies": {
+          "AspNet.Security.OAuth.Spotify": {
+            "target": "Package",
+            "version": "[3.0.0, )"
+          },
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
             "target": "Package",
             "version": "[3.0.0-preview5-19227-01, )"
-          },
-          "Microsoft.NETCore.Platforms": {
-            "suppressParent": "All",
-            "target": "Package",
-            "version": "[3.0.0-preview5.19224.8, )",
-            "autoReferenced": true
           }
         },
         "imports": [
-          "net461"
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[3.0.0-preview5-27626-15, 3.0.0-preview5-27626-15]"
+        "frameworkReferences": {
+          "Microsoft.AspNetCore.App": {
+            "privateAssets": "none"
+          },
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
           }
-        ],
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App",
-          "Microsoft.NETCore.App"
-        ]
+        },
+        "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\3.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }
