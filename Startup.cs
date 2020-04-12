@@ -42,19 +42,6 @@ namespace Spotify.Genres3
     public void ConfigureServices(IServiceCollection services)
     {
       services
-        .Configure<SpotifySettings>(Configuration.GetSection("Spotify"))
-        .Configure<CookiePolicyOptions>(options =>
-        {
-          // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-          options.MinimumSameSitePolicy = SameSiteMode.Lax;
-          options.HttpOnly = HttpOnlyPolicy.None;
-          options.Secure = _environment.IsDevelopment() ?
-            CookieSecurePolicy.None : CookieSecurePolicy.Always;
-        })
-        .AddCors(options =>
-        {
-          options.AddPolicy("AllowSpotify", builder => builder.WithOrigins("accounts.spotify.com").AllowAnyHeader().AllowAnyMethod());
-        })
         .AddAuthentication(o => o.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme)
         .AddCookie()
         .AddSpotify(options =>
@@ -66,9 +53,30 @@ namespace Spotify.Genres3
           options.ClientId = Configuration["Spotify:ClientId"];
           options.ClientSecret = Configuration["Spotify:ClientSecret"];
           options.CallbackPath = new PathString(Configuration["Spotify:RedirectUri"]);
-        });
 
-      services.AddDataProtection();
+          options.Events.OnAccessDenied = async context => 
+          {
+            return;
+          };
+
+          options.Events.OnCreatingTicket = async context => 
+          {
+            return;
+          };
+
+          options.Events.OnRemoteFailure = async context => 
+          {
+            return;
+          };
+
+          options.Events.OnTicketReceived = async context => 
+          {
+            // It comes here and then redirects back to the challenge endpoint, which is the root.
+            return;
+          };
+
+
+        });
 
       services.AddHttpClient();
 
@@ -93,16 +101,10 @@ namespace Spotify.Genres3
         app.UseHsts();
       }
 
-      app.UseCors("AllowSpotify");
-
-      app.UseHttpsRedirection();
       app.UseStaticFiles();
-
       app.UseRouting();
-
-      // app.UseCookiePolicy ();
-
       app.UseAuthentication();
+      app.UseAuthorization();
 
       app.UseEndpoints(endpoints =>
       {

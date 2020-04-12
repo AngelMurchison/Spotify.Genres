@@ -14,10 +14,11 @@ using Spotify.Genres3.Models;
 namespace Spotify.Genres3.Controllers {
     public class HomeController : Controller 
     {
+
       [Route("")]
         public IActionResult Index () 
         {
-            return Challenge (new AuthenticationProperties (), "Spotify");
+            return Challenge ("Spotify");
         }
 
         public IActionResult Privacy () 
