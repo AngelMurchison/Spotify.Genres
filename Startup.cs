@@ -23,8 +23,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
-using Spotify.Genres.Models;
-using Spotify.Genres.Services;
+using Spotify.Genres.Resources.Models;
+using Spotify.Genres.Business.Services;
 using Spotify.Genres.Business.Utility;
 
 namespace Spotify.Genres

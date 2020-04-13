@@ -1,6 +1,6 @@
 using System;
 
-namespace Spotify.Genres.Models
+namespace Spotify.Genres.Presentation.ViewModels
 {
   public class ErrorViewModel
   {

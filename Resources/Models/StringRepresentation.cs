@@ -1,4 +1,4 @@
-namespace Spotify.Genres.Models
+namespace Spotify.Genres.Resources.Models
 {
   public class StringRepresentation : System.Attribute
   {

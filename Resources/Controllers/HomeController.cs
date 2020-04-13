@@ -10,10 +10,11 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Spotify.Genres.Models;
+using Spotify.Genres.Presentation.ViewModels;
+using Spotify.Genres.Resources.Models;
 using SpotifyAPI.Web;
 
-namespace Spotify.Genres.Controllers
+namespace Spotify.Genres.Resources.Controllers
 {
 
   [Authorize(AuthenticationSchemes = "Spotify")]
@@ -30,7 +31,7 @@ namespace Spotify.Genres.Controllers
 
       var savedTracks = await api.GetSavedTracksAsync(50);
 
-      return View(savedTracks);
+      return View(new IndexViewModel { SavedTracks = savedTracks });
     }
 
     public IActionResult Privacy()

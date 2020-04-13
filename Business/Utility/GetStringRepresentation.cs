@@ -1,6 +1,6 @@
 using System;
 using System.Reflection;
-using Spotify.Genres.Models;
+using Spotify.Genres.Resources.Models;
 
 namespace Spotify.Genres.Business.Utility
 {
