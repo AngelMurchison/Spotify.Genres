@@ -5,14 +5,14 @@ using System.Linq;
 using System.Net.Http;
 using System.Web;
 using System.Threading.Tasks;
-using Spotify.Genres3.Models;
-using Spotify.Genres3.Services;
+using Spotify.Genres.Models;
+using Spotify.Genres.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Cors;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Authentication;
 
-namespace Spotify.Genres3.Controllers {
+namespace Spotify.Genres.Controllers {
 
     [ApiController]
     public class AuthController : Controller {

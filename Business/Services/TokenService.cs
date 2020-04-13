@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 using System.Web;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
-using Spotify.Genres3.Models;
+using Spotify.Genres.Models;
 
-namespace Spotify.Genres3.Services {
+namespace Spotify.Genres.Services {
 
     public interface ITokenService {
         Task<SpotifyToken> GetClientToken (string requestToken);

@@ -8,6 +8,8 @@
   <ItemGroup>
     <PackageReference Include="AspNet.Security.OAuth.Spotify" Version="3.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0-preview5-19227-01" />
+    <PackageReference Include="SpotifyAPI.Web" Version="5.1.0" />
+    <PackageReference Include="SpotifyAPI.Web.Auth" Version="5.1.0" />
   </ItemGroup>
 
 </Project>

@@ -1,7 +1,7 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spotify.Genres3", "Spotify.Genres3.csproj", "{1FA114EC-5690-46CD-B71F-AA3F0726C7C1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spotify.Genres", "Spotify.Genres.csproj", "{1FA114EC-5690-46CD-B71F-AA3F0726C7C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,7 +1,8 @@
 using System;
 using System.Reflection;
+using Spotify.Genres.Models;
 
-namespace Spotify.Genres3.Models
+namespace Spotify.Genres.Business.Utility
 {
   public static class GetStringRepresentationExtension
   {

@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace Spotify.Genres3
+namespace Spotify.Genres
 {
     public class Program
     {
