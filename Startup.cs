@@ -18,14 +18,16 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
-using Spotify.Genres3.Models;
-using Spotify.Genres3.Services;
+using Spotify.Genres.Resources.Models;
+using Spotify.Genres.Business.Services;
+using Spotify.Genres.Business.Utility;
 
-namespace Spotify.Genres3
+namespace Spotify.Genres
 {
   public class Startup
   {
@@ -41,7 +43,15 @@ namespace Spotify.Genres3
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
+      services.AddControllersWithViews();
+
       services
+      .Configure<RazorViewEngineOptions>(o =>
+      {
+        o.ViewLocationFormats.Clear();
+        o.ViewLocationFormats.Add("/Presentation/Views/{1}/{0}" + RazorViewEngine.ViewExtension);
+        o.ViewLocationFormats.Add("/Presentation/Views/Shared/{0}" + RazorViewEngine.ViewExtension);
+      })
         .AddAuthentication(o => o.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme)
         .AddCookie()
         .AddSpotify(options =>
@@ -53,38 +63,7 @@ namespace Spotify.Genres3
           options.ClientId = Configuration["Spotify:ClientId"];
           options.ClientSecret = Configuration["Spotify:ClientSecret"];
           options.CallbackPath = new PathString(Configuration["Spotify:RedirectUri"]);
-
-          options.Events.OnAccessDenied = async context => 
-          {
-            return;
-          };
-
-          options.Events.OnCreatingTicket = async context => 
-          {
-            return;
-          };
-
-          options.Events.OnRemoteFailure = async context => 
-          {
-            return;
-          };
-
-          options.Events.OnTicketReceived = async context => 
-          {
-            // It comes here and then redirects back to the challenge endpoint, which is the root.
-            return;
-          };
-
-
         });
-
-      services.AddHttpClient();
-
-      services.AddScoped<ITokenService, TokenService>();
-
-      services.AddControllersWithViews()
-        .AddNewtonsoftJson();
-      services.AddRazorPages();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -110,9 +89,9 @@ namespace Spotify.Genres3
       {
         endpoints.MapControllerRoute(
           name: "default",
-          pattern: "{controller}/{action}/{id?}");
+          pattern: "{controller=Home}/{action=Index}/{id?}");
 
-        endpoints.MapRazorPages();
+        // endpoints.MapRazorPages();
       });
     }
   }

@@ -1,6 +1,6 @@
 using System;
 
-namespace Spotify.Genres3.Models
+namespace Spotify.Genres.Resources.Models
 {
   [Flags]
   public enum SpotifyScope

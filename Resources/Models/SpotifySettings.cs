@@ -1,4 +1,4 @@
-namespace Spotify.Genres3.Models
+namespace Spotify.Genres.Resources.Models
 {
     public class SpotifySettings
     {

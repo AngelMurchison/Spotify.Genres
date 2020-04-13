@@ -1,4 +1,23 @@
-﻿@{
+﻿@model IndexViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    You have @Model.SavedTracks.Total saved tracks in your library! Here are @(@Model.SavedTracks.Total > 50 ? "50" : "all") of them:
+@if (@Model.SavedTracks.Total > 0)
+{
+    <ul>
+      @foreach (var item in Model.SavedTracks.Items)
+      {
+        <li>@item.Track.Name</li>
+      }
+    </ul>    
+} 
+</div>
+
+
+@* @{
     ViewData["Title"] = "Index";
 }
 
@@ -35,4 +54,4 @@
       // Connect to the player!
       player.connect();
     };
-  </script>
+  </script> *@
